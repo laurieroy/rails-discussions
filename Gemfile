@@ -54,3 +54,22 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# A modern CSS framework based on Flexbox
+gem 'bulma-rails', '~> 0.9.1'
+# Simple authorization solution for Rails.
+gem 'cancancan', '~> 3.2', '>= 3.2.1'
+# Fast and easy syntax highlighting for markdown
+gem 'coderay', '~> 1.1', '>= 1.1.3'
+# Flexible authentication solution for Rails with Warden
+gem 'devise', '~> 4.7', '>= 4.7.3'
+# FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for Active Record.
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
+#A configurable and documented Rails view helper for adding gravatars into your Rails application.
+gem 'gravatar_image_tag', '~> 1.2'
+# A fast, safe and extensible Markdown to (X)HTML parser
+gem 'redcarpet', '~> 3.5', '>= 3.5.1'
+# Very simple Roles library without any authorization enforcement supporting scope on resource objects (instance or class). 
+gem 'rolify', '~> 5.3'
+#Forms made easy!
+gem 'simple_form', '~> 5.1'

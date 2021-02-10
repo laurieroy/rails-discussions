@@ -1,24 +1,46 @@
-# README
+# DISCUSSIONS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A forum built in Rails 6 following a tutorial by [web-crunch](https://web-crunch.com/posts/lets-build-with-ruby-on-rails-discussion-forum) updated to Rails 6.
 
-Things you may want to cover:
+### Forum Posts have:
+* a Channel (category)
+* markdown support
+* Date published
+* Code formatting
+* Comment count
+* Comments
+	* Comment author
+	* Comment voting
+	* Markdown support
 
-* Ruby version
+### Forum Has:
+* Filters (nice to have)
+	* All
+	* Popular this week
+	* Popular all time
+	* No replies yet
+* Channels
 
-* System dependencies
+### Guest user can:
+* read forum posts
 
-* Configuration
+### Gems
+* Bulma-rails
+* simple_form
+* Devise
+* gravatar_image 
+* rolify
+* cancancan
+* friendly id
+* red carpet
+* coderay
 
-* Database creation
+### Admin users can:
+* Create Channels
+* Delete Forum discussions
 
-* Database initialization
+### Logged in user can:
+* Have a profile
+* Search the forum
+* Cotribute to forum discussions
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
