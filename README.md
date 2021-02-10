@@ -1,6 +1,6 @@
 # DISCUSSIONS
 
-A forum built in Rails 6 following a tutorial by [web-crunch](https://web-crunch.com/posts/lets-build-with-ruby-on-rails-discussion-forum) updated to Rails 6.
+A forum built in Rails 6 following a tutorial by [web-crunch](https://web-crunch.com/posts/lets-build-with-ruby-on-rails-discussion-forum) updated to Rails 6 and using pg out of the box. 
 
 ### Forum Posts have:
 * a Channel (category)
