@@ -17,7 +17,7 @@ class DiscussionsController < ApplicationController
 
   # GET /discussions/new
   def new
-    @discussion = current_user.discussion.build
+    @discussion = current_user.discussions.build
   end
 
   # GET /discussions/1/edit
@@ -26,7 +26,7 @@ class DiscussionsController < ApplicationController
 
   # POST /discussions or /discussions.json
   def create
-    @discussion = current_user.discussion.build(discussion_params)
+    @discussion = current_user.discussions.build(discussion_params)
 
     respond_to do |format|
       if @discussion.save
@@ -73,6 +73,6 @@ class DiscussionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def discussion_params
-      params.require(:discussion).permit(:title, :content)
+      params.require(:discussion).permit(:title, :content, :channel_id)
     end
 end
