@@ -4,10 +4,13 @@ class ChannelsController < ApplicationController
   # GET /channels or /channels.json
   def index
     @channels = Channel.all
+    @discussions = Discussion.all.order('created_at desc')
   end
 
   # GET /channels/1 or /channels/1.json
   def show
+    @discussions = Discussion.where('channel_id = ?', @channel.id)
+    @channels = Channel.all.order('created_at desc')
   end
 
   # GET /channels/new
@@ -25,11 +28,11 @@ class ChannelsController < ApplicationController
 
     respond_to do |format|
       if @channel.save
-        format.html { redirect_to @channel, notice: "Channel was successfully created." }
-        format.json { render :show, status: :created, location: @channel }
+        format.html { redirect_to @channels, notice: "Channel was successfully created." }
+        format.json { render :show, status: :created, location: @channels }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @channel.errors, status: :unprocessable_entity }
+        format.json { render json: @channels.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -38,11 +41,11 @@ class ChannelsController < ApplicationController
   def update
     respond_to do |format|
       if @channel.update(channel_params)
-        format.html { redirect_to @channel, notice: "Channel was successfully updated." }
-        format.json { render :show, status: :ok, location: @channel }
+        format.html { redirect_to @channels, notice: "Channel was successfully updated." }
+        format.json { render :show, status: :ok, location: @channels }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @channel.errors, status: :unprocessable_entity }
+        format.json { render json: @channels.errors, status: :unprocessable_entity }
       end
     end
   end

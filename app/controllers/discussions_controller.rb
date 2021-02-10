@@ -1,18 +1,23 @@
 class DiscussionsController < ApplicationController
   before_action :set_discussion, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :find_channels, only: %i[index show new edit]
 
   # GET /discussions or /discussions.json
   def index
-    @discussions = Discussion.all
+    @discussions = Discussion.all.order('created_at desc')
+    
   end
 
   # GET /discussions/1 or /discussions/1.json
   def show
+    @discussions = Discussion.all.order('created_at desc')
+    
   end
 
   # GET /discussions/new
   def new
-    @discussion = Discussion.new
+    @discussion = current_user.discussion.build
   end
 
   # GET /discussions/1/edit
@@ -21,7 +26,7 @@ class DiscussionsController < ApplicationController
 
   # POST /discussions or /discussions.json
   def create
-    @discussion = Discussion.new(discussion_params)
+    @discussion = current_user.discussion.build(discussion_params)
 
     respond_to do |format|
       if @discussion.save
@@ -58,6 +63,10 @@ class DiscussionsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def find_channels
+      @channels = Channel.all.order('created_at desc')
+    end
+
     def set_discussion
       @discussion = Discussion.find(params[:id])
     end
